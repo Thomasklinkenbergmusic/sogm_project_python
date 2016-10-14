@@ -1,18 +1,33 @@
+import pygame
 import time
-import rtmidi
+import pygame.midi
 
-midiout = rtmidi.MidiOut()
-available_ports = midiout.get_ports()
+pygame.midi.init()
 
-if available_ports:
-    midiout.open_port(0)
-else:
-    midiout.open_virtual_port("My virtual output")
+# print pygame.midi.get_default_input_id()
+# print pygame.midi.get_default_output_id()
+# print pygame.midi.get_device_info(1)
+# print pygame.midi.get_count()
 
-note_on = [0x90, 60, 112] # channel 1, middle C, velocity 112
-note_off = [0x80, 60, 0]
-midiout.send_message(note_on)
-time.sleep(0.5)
-midiout.send_message(note_off)
+player = pygame.midi.Output(1, 0)
+player.set_instrument(0,1)
+pygame.midi.MidiException(1)
+list=[[60, 100], [63, 100], [67, 100], [60, 100]]
 
-del midiout
+# player.note_on(60, 100)
+# time.sleep(1)
+# player.note_off(60, 100)
+
+for x in range(0, 4) :
+    for x in range(0, len(list)) :
+        player.note_on(list[x][0], list[x][1])
+        time.sleep(0.25)
+        player.note_off(list[x][0], list[x][1])
+        time.sleep(0.1)
+
+# import pygame.midi
+#
+# pygame.midi.init()
+#
+# port = pygame.midi.get_default_output_id()
+# print ("Using Output ID :%s:" % port)
