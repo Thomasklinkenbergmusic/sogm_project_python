@@ -20,11 +20,11 @@ CH=[]
 OH=[]
 
 # Midi notes
-MIDIKICK = 60
-MIDISNARE = 61
-MIDICLAP = 62
-MIDICH = 63
-MIDIOH = 64
+MIDIKICK = 36
+MIDISNARE = 38
+MIDICLAP = 34
+MIDICH = 42
+MIDIOH = 46
 
 # Gives every pattern list 16 lists with [0, 0]
 for I in range(0,16) :
