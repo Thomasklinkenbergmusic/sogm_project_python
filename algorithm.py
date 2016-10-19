@@ -502,7 +502,7 @@ for x in range(0, 16) :
 # Comment this when you DON'T want midi to play
 # ------------------------------------------------------------------------------
 varwat = 1
-while varwat == 1 : 
+while varwat == 1 :
     for x in range(0, 16) :
         player.note_on(KICK[x][0], KICK[x][1])
         player.note_on(SNARE[x][0], SNARE[x][1])
