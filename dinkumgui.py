@@ -22,8 +22,6 @@ class Application(Frame):
     self.button3 =  Button(self, text="Button 3")
     self.button3.grid()
 
-    # self.slider4 =
-
 # create a window
 root = Tk()
 

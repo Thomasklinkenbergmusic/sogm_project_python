@@ -111,5 +111,9 @@ class GUIclass :
     def __init__(self, master) :
         mainFrame = Frame(master)
 
+        self.menu = Menu(mainFrame)
+        self.config(menu=self.menu)
+
 root = Tk()
+gui = GUIclass(root)
 root.mainloop()
