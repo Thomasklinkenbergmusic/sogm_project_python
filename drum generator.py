@@ -178,7 +178,8 @@ class DrumGenerator(Frame) :
 # ------------------------------------------------------------------------------
     # Plays midi with the given BPM
     def playButton(self) :
-        sleeptime = float((60000. / float(self.bpmEntry.get())) / 8.) # Dertermines BPM
+        print "Playing..."
+        sleeptime = float((60000. / int(self.bpmEntry.get())) / 8.) # Dertermines BPM
         for i in range(0, 2) :
             for x in range(0, 16) :
                 self.player.note_on(self.KICK[x][0], self.KICK[x][1])
@@ -193,9 +194,11 @@ class DrumGenerator(Frame) :
                 self.player.note_off(self.CH[x][0], self.CH[x][1])
                 self.player.note_off(self.OH[x][0], self.OH[x][1])
                 time.sleep(sleeptime / 1000.)
+        print "Done playing!"
 
-    # Triggers the algorithm that fills the list with the given intensity
+    # Triggers the algorithm that fills the instrument lists with the given intensity
     def generateButton(self) :
+        print "Generated new drum pattern"
         self.INTENSITY = self.slider.get()
         # Generate Kick
         whileVar1 = 0
@@ -555,7 +558,7 @@ class DrumGenerator(Frame) :
 
             if self.countList(self.OH) > 0 :
                 whileVar5 = 1
-                
+
             # Converts the 1 in pattern lists to midi notes
             for x in range(0, 16) :
                 if self.KICK[x][0] == 1 :
